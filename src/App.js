@@ -17,7 +17,7 @@ class App extends Component {
     fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json()).then(userData => this.setState({monsters:userData})).catch(err => {'Got Error!'})
   }
 
-  handleChange = e =>{
+  onSearchChange = e =>{
     this.setState({searchText : e.target.value});
   }
 
@@ -29,7 +29,7 @@ const filterMonsters = monsters.filter(monster => monster.name.toLowerCase().inc
     <div className="App">
     <h1>Monster Roldex</h1>
 
-    <SearchBox placeholder='Type to Search Monsters' handleChange={this.handleChange} />
+    <SearchBox placeholder='Type to Search Monsters' handleChange={this.onSearchChange} />
 
     <CardList monsters={filterMonsters}/>
     </div>
